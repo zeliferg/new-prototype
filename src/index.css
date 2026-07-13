@@ -70,6 +70,22 @@
 
   --shadow-a-1: 0 0 20px rgb(94 98 120 / 0.04);
   --shadow-a-3: 0 3px 20px -2px rgb(0 0 0 / 0.1);
+
+  /* --- Pattern B: Material-style console shell. ----------------------- */
+  --font-b: 'Roboto', system-ui, sans-serif;
+
+  --color-b-brand: #16395b; /* logo / heading navy */
+  --color-b-primary: #1976d2;
+  --color-b-selected: #e8eef4; /* active nav row */
+  --color-b-text: rgb(0 0 0 / 0.87);
+  --color-b-muted: rgb(0 0 0 / 0.6);
+  --color-b-divider: rgb(0 0 0 / 0.12); /* divider token */
+  --color-b-paper: #ffffff;
+  --color-b-bg: #f4f5f7;
+  --color-b-success: #2e7d32;
+  --color-b-error: #d32f2f;
+
+  --shadow-b-card: 0 1px 3px rgb(0 0 0 / 0.12), 0 1px 2px rgb(0 0 0 / 0.06);
 }
 
 @layer base {

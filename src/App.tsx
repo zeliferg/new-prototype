@@ -2,6 +2,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import PatternSwitcher, { patternFor } from './components/PatternSwitcher'
 import PatternA from './pages/PatternA'
+import PatternB from './pages/PatternB'
 import PatternC from './pages/PatternC'
 import PatternD from './pages/PatternD'
 
@@ -24,6 +25,8 @@ export default function App() {
         {/* Each pattern owns a URL namespace; Pattern D owns everything else. */}
         <Route path="/a/*" element={<PatternA />} />
         <Route path="/a" element={<PatternA />} />
+        <Route path="/b/*" element={<PatternB />} />
+        <Route path="/b" element={<PatternB />} />
         <Route path="/c/*" element={<PatternC />} />
         <Route path="/c" element={<PatternC />} />
         <Route path="*" element={<ShellD />} />

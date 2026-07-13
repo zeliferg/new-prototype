@@ -1,18 +1,25 @@
 import { useNavigate } from 'react-router-dom'
 
-export type Pattern = 'A' | 'C' | 'D'
+export type Pattern = 'A' | 'B' | 'C' | 'D'
 
 /** The pattern is encoded in the URL, so it's shareable and survives reload. */
 export function patternFor(pathname: string): Pattern {
   if (pathname === '/a' || pathname.startsWith('/a/')) return 'A'
+  if (pathname === '/b' || pathname.startsWith('/b/')) return 'B'
   if (pathname === '/c' || pathname.startsWith('/c/')) return 'C'
   return 'D'
 }
 
-const HOME: Record<Pattern, string> = { A: '/a/property/basic', C: '/c', D: '/dashboard' }
+const HOME: Record<Pattern, string> = {
+  A: '/a/property/basic',
+  B: '/b',
+  C: '/c',
+  D: '/dashboard',
+}
 
 const OPTIONS: { id: Pattern; label: string; hint: string }[] = [
   { id: 'A', label: 'Pattern A', hint: 'Admin' },
+  { id: 'B', label: 'Pattern B', hint: 'Console' },
   { id: 'C', label: 'Pattern C', hint: 'Insights' },
   { id: 'D', label: 'Pattern D', hint: 'Top nav' },
 ]
