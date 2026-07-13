@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+
+/* Design tokens mirrored from the Figma file's published variables.
+   Names follow the Figma variable paths so a design change maps to one edit here. */
+@theme {
+  --font-sans: 'Noto Sans', 'Helvetica Neue', system-ui, sans-serif;
+
+  --color-nav-dark: #1a3b5c; /* Theme/Dark */
+  --color-primary: #3878bc; /* Theme/Primary */
+  --color-secondary: #6d6e71; /* Theme/Secondary */
+  --color-accent: #fccb49; /* All/Yellow/Yellow-500 — desktop active underline */
+  --color-accent-mobile: #f3b543; /* mobile active-row bar */
+  --color-submenu-hover: #bdd7eb;
+
+  --color-success: #3f841f; /* Theme/Success */
+  --color-danger: #b9160a; /* Theme/Danger */
+
+  --color-txt: #333333; /* Text/Primary */
+  --color-txt-secondary: #6d6e71; /* Text/Secondary */
+  --color-txt-link: #345d9d; /* Text/Link */
+  --color-txt-placeholder: #8e8f92; /* Text/Placeholder */
+  --color-txt-disabled: #b1b3b6; /* Text/Disabled */
+
+  --color-divider: #d8d6d7; /* Component/Divider */
+  --color-input-border: #d8d6d7;
+  --color-border-subtle: #ecebea;
+  --color-surface: #fafcfe; /* Component/Background */
+  --color-gray-100: #f7f7f7;
+  --color-scrollbar: #e6e7e8;
+  --color-page: #f1f1f2;
+
+  /* --- Pattern C: a separate design language (sidebar shell). ---------- */
+  --font-c: 'Inter', 'Circular Std', system-ui, sans-serif;
+
+  --color-c-ink: #001022; /* Primary/Main + Text/Primary */
+  --color-c-bg: #f8fafc; /* Background/Light */
+  --color-c-selected: #28548a; /* Action/Selected */
+  --color-c-hover: #2a4970; /* Action/Hover */
+  --color-c-active: #4d5966; /* Action/Active */
+
+  --color-c-green: #69e2ae; /* Brand/Green */
+  --color-c-pink: #ff3399; /* Brand/Pink */
+  --color-c-purple: #9165f7; /* Brand/Purple */
+  --color-c-blue: #22d8f1; /* Brand/Blue */
+
+  --shadow-card: 0 0 3px rgb(0 0 0 / 0.15);
+  --shadow-header: 0 1px 4px rgb(0 0 0 / 0.15);
+  --shadow-side-nav: 1px 0 4px rgb(0 0 0 / 0.15);
+
+  /* --- Pattern A: blue-accented admin shell. -------------------------- */
+  --font-a: 'Mulish', system-ui, sans-serif;
+
+  --color-a-blue: #1a7bd9; /* Primary Blue/Blue 400 — accent + active bar */
+  --color-a-blue-deep: #004c95; /* Blue 500 */
+  --color-a-blue-bg: #ecf5ff; /* Blue 300 — selected nav row */
+  --color-a-blue-faint: #f7fafe; /* Blue 200 — table group band */
+  --color-a-ink: #101828; /* Dark Blue 600 — headings */
+
+  --color-a-gray-650: #202227;
+  --color-a-gray-600: #2a3440;
+  --color-a-gray-500: #475467;
+  --color-a-gray-450: #5d6a71;
+  --color-a-gray-400: #778588;
+  --color-a-gray-250: #c7cfce;
+  --color-a-gray-100: #e9ecee;
+  --color-a-gray-50: #f8fafb;
+
+  --color-a-error: #cd0014; /* Alert/Error 300 — Sold Out */
+  --color-a-success: #a5f3a8; /* Alert/Success 100 — permit pill */
+
+  --shadow-a-1: 0 0 20px rgb(94 98 120 / 0.04);
+  --shadow-a-3: 0 3px 20px -2px rgb(0 0 0 / 0.1);
+}
+
+@layer base {
+  html {
+    /* The Figma type scale is built on a 14px root: 1rem = 14px, 0.9rem = 12.6px. */
+    font-size: 14px;
+  }
+
+  body {
+    @apply bg-page font-sans text-txt antialiased;
+  }
+
+  /* A single visible focus style everywhere, since this is a keyboard-driven nav demo. */
+  :focus-visible {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar) transparent;
+}
