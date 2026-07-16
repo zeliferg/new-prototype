@@ -110,17 +110,3 @@
   scrollbar-width: thin;
   scrollbar-color: var(--color-scrollbar) transparent;
 }
-
-/* Overview and compare render each shell inside a scaled, fixed-size stage. Two
-   things that normally resolve against the window have to resolve against the
-   stage instead. Unlayered on purpose: Tailwind's utilities live in a cascade
-   layer, and layered rules lose to unlayered ones regardless of specificity. */
-.pattern-stage {
-  /* Pattern D draws no background of its own — it inherits the body's. */
-  background: var(--color-page);
-}
-
-.pattern-stage .min-h-screen {
-  /* 100vh would measure the real window; the stage is the viewport here. */
-  min-height: 100%;
-}
