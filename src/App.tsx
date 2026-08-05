@@ -6,12 +6,18 @@ import { isEmbedded } from './lib/isEmbedded'
 import { PATTERNS, patternFor } from './lib/patterns'
 import { useIsDesktop } from './lib/useIsDesktop'
 import { modeFrom, pairFrom } from './lib/viewMode'
+import MobilePage from './mobile/MobilePage'
 
 export default function App() {
   const { pathname } = useLocation()
   const [search] = useSearchParams()
   const isDesktop = useIsDesktop()
   const embedded = isEmbedded()
+
+  // /mobile is a self-contained shell with its own overview and switcher, so it
+  // returns before the desktop modes and PatternSwitcher below. Claiming the URL
+  // here rather than as a <Route> is what keeps that switcher off the phone screen.
+  if (pathname === '/mobile' || pathname.startsWith('/mobile/')) return <MobilePage />
 
   const active = patternFor(pathname)
   // Overview and compare need room they don't have on a phone, so below `lg` a
