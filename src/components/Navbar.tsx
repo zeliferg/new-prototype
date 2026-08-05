@@ -267,14 +267,19 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile panel — expands in flow, pushing the page down. */}
+      {/* Mobile panel — overlays the page rather than displacing it. Same
+          0fr → 1fr row animation as before, but taken out of flow so opening the
+          menu doesn't shove the content down. `top-full` hangs it off the bottom
+          of the 60px bar; the sticky header is already a containing block. */}
       <div
         id="mobile-nav"
-        className={`grid overflow-hidden bg-nav-dark transition-[grid-template-rows] duration-300 ease-out lg:hidden ${
+        className={`absolute inset-x-0 top-full grid overflow-hidden bg-nav-dark shadow-lg transition-[grid-template-rows] duration-300 ease-out lg:hidden ${
           mobileOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         }`}
       >
-        <div className="min-h-0">
+        {/* A long menu scrolls itself instead of running off the viewport, since
+            it can no longer lengthen the page to make room. */}
+        <div className="min-h-0 max-h-[calc(100dvh-60px)] overflow-y-auto">
           <div className="pb-2">
             <p className="px-6 py-3 font-bold text-white">Account Name</p>
             {NAV.map((item) => (
